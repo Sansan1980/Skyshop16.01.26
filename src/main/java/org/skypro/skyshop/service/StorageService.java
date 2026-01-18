@@ -7,15 +7,13 @@ import org.skypro.skyshop.model.product.SimpleProduct;
 import org.skypro.skyshop.model.search.Searchable;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class StorageService {
-    private Map<UUID, Product> productReposirory;
+    private final Map<UUID, Product> productReposirory;
     private final Map<UUID, Article> articleRepository;
+
 
     //public StorageService(Searchable product) {
     public StorageService() {
@@ -31,6 +29,15 @@ public class StorageService {
 
     public Map<UUID, Article> getArticleRepository() {
         return articleRepository;
+    }
+
+    public List<Searchable> sharedRepositoryOfProductsAndArticles() {
+        Collection<Product> productList = getProductReposirory().values();
+        Collection<Article> articleList = getArticleRepository().values();
+        List<Searchable> searchableList = new ArrayList<>();
+        searchableList.addAll(productList);
+        searchableList.addAll(articleList);
+                return searchableList;
     }
 
 
