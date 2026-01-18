@@ -8,9 +8,9 @@ import java.util.UUID;
 
 public class Article implements Searchable {
     private final UUID id;
-    private String nameArticle;
+    private final String nameArticle;
 
-    private String textArticle;
+    private final String textArticle;
 
     public Article(UUID id, String nameArticle, String textArticle) {
         this.id = id;
@@ -30,23 +30,21 @@ public class Article implements Searchable {
     public String getTextArticle() {
         return textArticle;
     }
-
-    @Override
     @JsonIgnore
+    @Override
     public String searchTerm() {
-        return getNameArticle() + getTextArticle();
+        return getNameArticle()+"kkkkk" + getTextArticle();
     }
-
-    @Override
     @JsonIgnore
+    @Override
     public String returnsNameTipContent() {
         return "ARTICLE";
     }
 
     @Override
     public String getStringRepresentation() {// почему-то ошибка когда default
-        return "Имя объекта - " + getNameArticle() +
-                ", Тип объекта - " + returnsNameTipContent();
+        return "Имя объекта - " + getNameArticle() ;//+
+              //  ", Тип объекта - " + returnsNameTipContent();
     }
 
     @Override

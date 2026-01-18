@@ -23,15 +23,15 @@ public abstract class Product implements Searchable {
     public UUID getId() {
         return id;
     }
-    @JsonIgnore
     public abstract boolean isSpecial();
 
     public String getNameProduct() {
         return nameProduct;
     }
     @JsonIgnore
+    @Override
     public String searchTerm() {
-        return getNameProduct() + "PRODUCT";
+        return getNameProduct() +"JJJJJ"+ "PRODUCT";
     }
 
 

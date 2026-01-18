@@ -1,5 +1,7 @@
 package org.skypro.skyshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.UUID;
 
 public class FixPriceProduct extends Product {
@@ -28,16 +30,15 @@ public class FixPriceProduct extends Product {
                 ", Фиксированная цена - " + getPrice();
     }
 
-
+    @JsonIgnore
     @Override
-
     public String returnsNameTipContent() {
         return "FIX_PRICE_PRODUCT";
     }
 
     @Override
     public String getStringRepresentation() {// почему-то ошибка когда default
-        return "Имя объекта - " + getNameProduct() +
-                ", Тип объекта - " + returnsNameTipContent();
+        return "Имя объекта - " + getNameProduct();//+
+        // ", Тип объекта - " + returnsNameTipContent();
     }
 }

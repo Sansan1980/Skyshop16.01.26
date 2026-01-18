@@ -1,5 +1,6 @@
 package org.skypro.skyshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.exeption.IllegalBasicPriceArgumentException;
 import org.skypro.skyshop.exeption.IllegalDiscountPriceArgumentException;
 
@@ -51,7 +52,7 @@ public class DiscountedProduct extends Product {
                 ", Стоимость продукта - " + getPrice();
     }
 
-
+    @JsonIgnore
     @Override
     public String returnsNameTipContent() {
         return "DISCOUNT_PRODUCT";
@@ -59,8 +60,8 @@ public class DiscountedProduct extends Product {
 
     @Override
     public String getStringRepresentation() {
-        return "Имя объекта - " + getNameProduct() +
-                ", Тип объекта - " + returnsNameTipContent();
+        return "Имя объекта - " + getNameProduct();//+
+        //", Тип объекта - " + returnsNameTipContent();
     }
 
     public void chekDiscountedProductPrice(int basicPrice, int discount) throws IllegalBasicPriceArgumentException, IllegalDiscountPriceArgumentException {
