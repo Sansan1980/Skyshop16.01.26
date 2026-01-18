@@ -7,7 +7,7 @@ public class FixPriceProduct extends Product {
 
 
     public FixPriceProduct(UUID id, String name) {
-        super(id,name);
+        super(id, name);
     }
 
     @Override
@@ -23,12 +23,14 @@ public class FixPriceProduct extends Product {
     @Override
     public String toString() {
         //имя продукта c фиксированной ценой>: Фиксированная цена <значение константы фиксированной цены>
-        return "Имя продукта c фиксированной ценой : " + getNameProduct() +
+        return "Id продукта  = " + getId() +
+                "Имя продукта c фиксированной ценой : " + getNameProduct() +
                 ", Фиксированная цена - " + getPrice();
     }
 
 
     @Override
+
     public String returnsNameTipContent() {
         return "FIX_PRICE_PRODUCT";
     }
