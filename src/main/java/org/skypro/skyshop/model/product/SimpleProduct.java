@@ -1,5 +1,6 @@
 package org.skypro.skyshop.model.product;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.exeption.IllegalSimpleProductPriceArgumentException;
 
 import java.util.UUID;
@@ -25,11 +26,12 @@ public class SimpleProduct extends Product {
 
     @Override
     public String toString() {
-        return "Имя продукта - " + getNameProduct() +
+        return "Id продукта  = " + getId() +
+                "Имя продукта - " + getNameProduct() +
                 ", Его стоимость - " + getPrice();
     }
 
-
+    @JsonIgnore
     @Override
     public String returnsNameTipContent() {
         return "SIMPLE_PRODUCT";
@@ -37,8 +39,8 @@ public class SimpleProduct extends Product {
 
     @Override
     public String getStringRepresentation() {// почему-то ошибка когда default
-        return "Имя объекта - " + getNameProduct() +
-                "Тип объекта - " + returnsNameTipContent();
+        return "Имя объекта - " + getNameProduct();//+
+        //"Тип объекта - " + returnsNameTipContent();
     }
 
     public void checSimpleProductPrice(int priceProduct) throws IllegalSimpleProductPriceArgumentException {

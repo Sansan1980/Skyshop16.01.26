@@ -1,6 +1,7 @@
 package org.skypro.skyshop.model.product;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.exeption.IllegalProductNameArgumentException;
 import org.skypro.skyshop.model.search.Searchable;
 
@@ -22,15 +23,15 @@ public abstract class Product implements Searchable {
     public UUID getId() {
         return id;
     }
-
     public abstract boolean isSpecial();
 
     public String getNameProduct() {
         return nameProduct;
     }
-
+    @JsonIgnore
+    @Override
     public String searchTerm() {
-        return getNameProduct() + "PRODUCT";
+        return getNameProduct() +"JJJJJ"+ "PRODUCT";
     }
 
 

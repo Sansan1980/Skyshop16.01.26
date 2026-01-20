@@ -1,15 +1,16 @@
 package org.skypro.skyshop.model.article;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.skypro.skyshop.model.search.Searchable;
 
 import java.util.UUID;
 
 public class Article implements Searchable {
     private final UUID id;
-    private String nameArticle;
+    private final String nameArticle;
 
-    private String textArticle;
+    private final String textArticle;
 
     public Article(UUID id, String nameArticle, String textArticle) {
         this.id = id;
@@ -29,12 +30,12 @@ public class Article implements Searchable {
     public String getTextArticle() {
         return textArticle;
     }
-
+    @JsonIgnore
     @Override
     public String searchTerm() {
-        return getNameArticle() + getTextArticle();
+        return getNameArticle()+"kkkkk" + getTextArticle();
     }
-
+    @JsonIgnore
     @Override
     public String returnsNameTipContent() {
         return "ARTICLE";
@@ -42,13 +43,14 @@ public class Article implements Searchable {
 
     @Override
     public String getStringRepresentation() {// почему-то ошибка когда default
-        return "Имя объекта - " + getNameArticle() +
-                ", Тип объекта - " + returnsNameTipContent();
+        return "Имя объекта - " + getNameArticle() ;//+
+              //  ", Тип объекта - " + returnsNameTipContent();
     }
 
     @Override
     public String toString() {
-        return "Название статьи - " + getNameArticle() +
+        return "Id продукта  = " + getId() +
+                "Название статьи - " + getNameArticle() +
                 ", Текст статьи - " + getTextArticle();
     }
 
